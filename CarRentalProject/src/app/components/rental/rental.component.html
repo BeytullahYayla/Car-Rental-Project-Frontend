@@ -1,0 +1,53 @@
+<!-- <table class="table table-striped">
+    
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td *ngFor="let rental of rentals">{{rental.rentalID}}</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td *ngFor="let rental of rentals">{{rental.brandName}}</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td *ngFor="let rental of rentals">{{rental.returnDate}}</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td *ngFor="let rental of rentals">{{rental.rentDate}}</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td *ngFor="let rental of rentals">{{rental.customerFullName}}</td>
+      </tr>
+      
+      
+    </tbody>
+  </table> -->
+  <table class="table table-striped">
+    <thead>
+        
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">RentalID</th>
+           <td *ngFor="let rental of rentals">{{rental.rentalID}}</td>
+        </tr>
+        <tr>
+          <th scope="row">BrandName</th>
+          <td *ngFor="let rental of rentals">{{rental.brandName}}</td>
+        </tr>
+        <tr>
+            <th scope="row">CustomerName</th>
+            <td *ngFor="let rental of rentals">{{rental.customerFullName}}</td>
+          </tr>
+          <tr>
+            <th scope="row">RentDate</th>
+            <td *ngFor="let rental of rentals">{{rental.rentDate}}</td>
+          </tr>
+          <tr>
+            <th scope="row">ReturnDate</th>
+            <td *ngFor="let rental of rentals">{{rental.returnDate}}</td>
+          </tr>
+</table>
