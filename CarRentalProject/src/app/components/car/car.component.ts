@@ -4,6 +4,7 @@ import { HttpClient } from  '@angular/common/http';
 import { CarResponseModel } from 'src/app/models/carResponseModel';
 import { CarService } from 'src/app/services/car.service';
 import { ActivatedRoute } from '@angular/router';
+import { ElementSchemaRegistry } from '@angular/compiler';
 
 @Component({
   selector: 'app-car',
@@ -27,7 +28,12 @@ export class CarComponent implements OnInit {
       params=>{
         if (params["brandID"]) {
           this.getCarsByBrand(params["brandID"])
-        }else{
+        }
+        else if (params["colorID"]) {
+          this.getCarsByColor(params["colorID"])
+          
+        }
+        else{
           this.getCars()
         
         }
@@ -43,6 +49,13 @@ export class CarComponent implements OnInit {
   }
   getCarsByBrand(brandID:number){
     this.carService.getCarsByBrand(brandID).subscribe(
+      response=>{
+        this.cars=response.data;
+      }
+    )
+  }
+  getCarsByColor(colorID:number){
+    this.carService.getCarsByColor(colorID).subscribe(
       response=>{
         this.cars=response.data;
       }
