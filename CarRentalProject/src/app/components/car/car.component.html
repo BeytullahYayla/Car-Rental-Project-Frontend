@@ -1,25 +1,10 @@
-<table class="table">
- 
-  <tbody>
-    <tr>
-      <th scope="row">CarID</th>
-      <td *ngFor="let car of cars">{{car.carID}}</td>
-    </tr>
-    <tr>
-      <th scope="row">BrandName</th>
-      <td *ngFor="let car of cars">{{car.brandName}}</td>
-    </tr>
-    <tr>
-      <th scope="row">ColorName</th>
-      <td *ngFor="let car of cars">{{car.colorName}}</td>
-    </tr>
-    <tr>
-      <th scope="row">ModelYear</th>
-      <td *ngFor="let car of cars">{{car.modelYear}}</td>
-    </tr>
-    <tr>
-      <th scope="row">DailyPrice</th>
-      <td *ngFor="let car of cars">{{car.dailyPrice}}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngFor="let car of cars filterCarModelPipe|filterCarModelName"class="col-lg-4 col-md-6 shadow-lg p-1 mb-3" style="width: 15.4rem;">
+  <div class="card" style="width:15rem;">
+    <img 
+    [src]="getImagePath(car.carImages[0].imagePath)"
+    
+    >
+
+  </div>
+
+</div>

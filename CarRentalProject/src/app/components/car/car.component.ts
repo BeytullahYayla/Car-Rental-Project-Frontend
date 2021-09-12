@@ -5,6 +5,11 @@ import { CarResponseModel } from 'src/app/models/carResponseModel';
 import { CarService } from 'src/app/services/car.service';
 import { ActivatedRoute } from '@angular/router';
 import { ElementSchemaRegistry } from '@angular/compiler';
+import { CarImageService } from 'src/app/services/car-image.service';
+import { BrandService } from 'src/app/services/brand.service';
+import { ColorService } from 'src/app/services/color.service';
+import { Brand } from 'src/app/models/Brand';
+import { Color } from 'src/app/models/Color';
 
 @Component({
   selector: 'app-car',
@@ -21,8 +26,19 @@ export class CarComponent implements OnInit {
   //   success:true
   // }
   dataLoaded=false;
-  constructor(private carService:CarService,private activatedRoute:ActivatedRoute) { }
+  constructor(private carService:CarService,
+    private activatedRoute:ActivatedRoute,
+    private carImageService:CarImageService,
+    private brandService:BrandService,
+    private colorService:ColorService
+    
+    ) { }
   cars:Car[]=[]
+  brands:Brand[]=[]
+  colors:Color[]=[]
+  filterBrandId:number = 1;
+  filterColorId:number = 1;
+  filterCarModelName:string = "";
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
       params=>{
@@ -37,6 +53,8 @@ export class CarComponent implements OnInit {
           this.getCars()
         
         }
+        this.getColors();
+        this.getBrands();
       }
     )
     
@@ -61,5 +79,29 @@ export class CarComponent implements OnInit {
       }
     )
   }
+  getCarsByFilter(brandID:number,colorID:number){
+    this.carService.getCarsByFilter(brandID,colorID).subscribe(
+      response=>{
+        this.cars=response.data;
+      }
+    )
 
+  }
+  getImagePath(imagePath:string){
+    this.carImageService.getImagePath(imagePath);
+  }
+  getBrands(){
+    this.brandService.getBrands().subscribe(
+      response=>{
+        this.brands=response.data;
+      }
+    )
+  }
+  getColors(){
+    this.colorService.getColors().subscribe(
+      response=>{
+        this.colors=response.data;
+      }
+    )
+  }
 }

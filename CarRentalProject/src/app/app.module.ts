@@ -10,6 +10,9 @@ import { BrandComponent } from './components/brand/brand.component';
 import { ColorComponent } from './components/color/color.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { CustomerComponent } from './components/customer/customer.component';
+import { FilterBrandPipePipe } from './pipes/filter-brand-pipe.pipe';
+import { FilterCarmodelPipePipe } from './pipes/filter-carmodel-pipe.pipe';
+import { FilterColorPipePipe } from './pipes/filter-color-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { CustomerComponent } from './components/customer/customer.component';
     BrandComponent,
     ColorComponent,
     RentalComponent,
-    CustomerComponent
+    CustomerComponent,
+    FilterBrandPipePipe,
+    FilterCarmodelPipePipe,
+    FilterColorPipePipe
   ],
   imports: [
     BrowserModule,
