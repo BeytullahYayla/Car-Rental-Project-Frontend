@@ -1,10 +1,54 @@
-<div *ngFor="let car of cars filterCarModelPipe|filterCarModelName"class="col-lg-4 col-md-6 shadow-lg p-1 mb-3" style="width: 15.4rem;">
-  <div class="card" style="width:15rem;">
-    <img 
-    [src]="getImagePath(car.carImages[0].imagePath)"
-    
-    >
-
+<div class="row">
+  <div
+    class="col-lg-4 col-md-6 shadow-lg p-3 mb-5 rounded"
+    *ngFor="let car of cars"
+  >
+      <div class="card border-0 mb-3" style="width: 18rem">
+      <img
+        class="car-image"
+        routerLink="/cars/car-detail/{{ car.carID }}"
+        src="{{ imgUrl }}{{ car.carImage }}"
+        class="card-img-top"
+        alt="Image"
+        role="button"
+        width="200"
+        height="200"
+      />
+      <div class="card-body text-center">
+        <h4>
+          <a
+            routerLink="/cars/car-detail/{{ car.carID }}"
+            class="card-title text-decoration-none h5"
+            style="color: #007bff"
+            >{{ car.brandName }}
+          </a>
+        </h4>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <span class="float-start">Model</span>
+          <span class="float-end">{{ car.brandName }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="float-start">Renk</span>
+          <span class="float-end">{{ car.colorName }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="float-start">Model</span>
+          <span class="float-end">{{ car.modelYear }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="float-start">Açıklama</span>
+          <span class="float-end">{{ car.description }}</span>
+        </li>
+        <p class="card-text text-center h3 mt-3">{{ car.dailyPrice }}₺</p>
+      </ul>
+      <div class="card-body">
+        <div class="d-flex action justify-content-between">
+          <a href="" class="btn btn-success">Kirala</a>
+          <a class="btn btn-primary">Detaylar</a>
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>

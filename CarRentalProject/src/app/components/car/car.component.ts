@@ -3,7 +3,7 @@ import { Car } from 'src/app/models/Car';
 import { HttpClient } from  '@angular/common/http';
 import { CarResponseModel } from 'src/app/models/carResponseModel';
 import { CarService } from 'src/app/services/car.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ElementSchemaRegistry } from '@angular/compiler';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { BrandService } from 'src/app/services/brand.service';
@@ -30,15 +30,18 @@ export class CarComponent implements OnInit {
     private activatedRoute:ActivatedRoute,
     private carImageService:CarImageService,
     private brandService:BrandService,
-    private colorService:ColorService
+    private colorService:ColorService,
+    private router:Router
     
     ) { }
   cars:Car[]=[]
   brands:Brand[]=[]
   colors:Color[]=[]
-  filterBrandId:number = 1;
-  filterColorId:number = 1;
-  filterCarModelName:string = "";
+ 
+
+  imgUrl: string = 'https://localhost:44341/';
+  defaultImage = 'default.jpg';
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
       params=>{
@@ -48,6 +51,9 @@ export class CarComponent implements OnInit {
         else if (params["colorID"]) {
           this.getCarsByColor(params["colorID"])
           
+        }
+        else if(params["brandID"] && params["colorID"]){
+          this.getCarsByFilter(params["brandID"],params["colorID"])
         }
         else{
           this.getCars()

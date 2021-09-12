@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-md-8">
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            *ngFor="let image of carImages; let i = index"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            attr.data-bs-slide-to="{{ i }}"
+            [class]="getButtonClass(image)"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div
+            *ngFor="let image of carImages"
+            [class]="getCurrentImage(image)"
+          >
+            <img
+              [src]="getPath() + image.imagePath"
+              class="d-block w-100"
+              width="300"
+              height="400"
+              alt="Image"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev"
+        >
+          <span
+            class="carousel-control-prev-icon bg-dark"
+            aria-hidden="true"
+          ></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next"
+        >
+          <span
+            class="carousel-control-next-icon bg-dark"
+            aria-hidden="true"
+          ></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div *ngFor="let car of cars">
+        <li
+          class="
+            list-group-item
+            bg-primary bg-gradient
+            text-light text-center
+            mb-1
+            rounded
+          "
+        >
+          <strong>Araç Özellikleri</strong>
+        </li>
+        <li class="list-group-item">
+          <strong>Marka: </strong>{{ car.brandName }}
+        </li>
+        <li class="list-group-item">
+          <strong>Model: </strong>{{ car.brandName }}
+        </li>
+        <li class="list-group-item">
+          <strong>Renk: </strong>{{ car.colorName }}
+        </li>
+        <li class="list-group-item">
+          <strong>Fiyat/Gün: </strong>{{ car.dailyPrice }} ₺
+        </li>
+        <li class="list-group-item">
+          <strong>Model Yılı: </strong>{{ car.modelYear }}
+        </li>
+      </div>
+      <br />
+      <button class="col-md-12 btn btn-success">Kirala</button>
+    </div>
+  </div>

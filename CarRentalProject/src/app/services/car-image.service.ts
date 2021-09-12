@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CarImageService {
 
-  apiUrl= "https://localhost:44372/";
+  apiUrl= "https://localhost:44341/";
   constructor(private httpClient:HttpClient) { }
   getImagePath(imagePath:string){
     return this.apiUrl+imagePath
