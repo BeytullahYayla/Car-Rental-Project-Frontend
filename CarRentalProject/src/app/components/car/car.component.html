@@ -4,10 +4,10 @@
     *ngFor="let car of cars"
   >
       <div class="card border-0 mb-3" style="width: 18rem">
-      <img
+        <img
         class="car-image"
         routerLink="/cars/car-detail/{{ car.carID }}"
-        src="{{ imgUrl }}{{ car.carImage }}"
+        src="{{imgUrl}}{{car.carImages}}"
         class="card-img-top"
         alt="Image"
         role="button"
