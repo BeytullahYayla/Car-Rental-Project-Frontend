@@ -71,10 +71,10 @@ export class CarDetailComponent implements OnInit {
   }
   getCurrentImageClass(image:CarImage){
     if (this.carImages[0]==image) {
-      return "carosel-item active"
+      return "carousel-item active"
     }
     else{
-      return "carosel-item"
+      return "carousel-item"
     }
 
 
