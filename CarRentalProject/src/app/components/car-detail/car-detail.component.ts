@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Car } from 'src/app/models/Car';
+import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
-import { Car } from '../../models/Car';
-import { CarImage } from '../../models/carImage';
+
 
 @Component({
   selector: 'app-car-detail',
@@ -12,39 +13,38 @@ import { CarImage } from '../../models/carImage';
 })
 export class CarDetailComponent implements OnInit {
 
-  carImages:CarImage[]
   cars:Car[]=[]
+  carImages:CarImage[]=[]
   currentImage:CarImage
 
-  defaultPath = 'https://localhost:44341'
-  constructor(
-    private carService:CarService,
-    private carImageService:CarImageService,
-    private activatedRoute:ActivatedRoute
+  defaultPath = 'https://localhost:44341';
 
-  ) { }
+  constructor(private carService:CarService,
+    private carImageService:CarImageService,
+    private activatedRoute:ActivatedRoute,
+    private router:Router
+    ) { 
+      
+    }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
-      (params)=>{
+      params=>{
         if (params["carID"]) {
-          this.getCarsById(params["carID"]),
+          this.getCarsByCarId(params["carID"])
           this.getCarImages(params["carID"])
-
+          
         }
       }
     )
   }
-  getCarsById(carID:number){
+
+  getCarsByCarId(carID:number){
     this.carService.getCarsByCarId(carID).subscribe(
       response=>{
         this.cars=response.data;
-        
       }
     )
-  }
-  getPath(){
-    return this.defaultPath;
   }
   getCarImages(carID:number){
     this.carService.getCarImagesByCarId(carID).subscribe(
@@ -54,22 +54,29 @@ export class CarDetailComponent implements OnInit {
     )
   }
   getButtonClass(image:CarImage){
-    if ((image=this.carImages[0])) {
+    if (this.carImages[0]==image) {
       return "active"
-    }else{
+    }
+    else{
       return ""
     }
   }
+
+  getPath(){
+    return this.defaultPath
+  }
   setCurrentImageClass(image:CarImage){
     this.currentImage=image
+
   }
-  getCurrentImage(image:CarImage){
-    if (this.carImages[0]=image) {
-      return "carousel-item active"
+  getCurrentImageClass(image:CarImage){
+    if (this.carImages[0]==image) {
+      return "carosel-item active"
     }
     else{
-      return "carousel-item"
+      return "carosel-item"
     }
-  }
 
+
+  }
 }

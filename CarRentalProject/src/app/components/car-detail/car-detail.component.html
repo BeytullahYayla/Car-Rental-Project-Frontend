@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-8">
       <div
         id="carouselExampleIndicators"
@@ -19,7 +19,7 @@
         <div class="carousel-inner">
           <div
             *ngFor="let image of carImages"
-            [class]="getCurrentImage(image)"
+            [class]="getCurrentImageClass(image)"
           >
             <img
               [src]="getPath() + image.imagePath"
@@ -72,9 +72,7 @@
         <li class="list-group-item">
           <strong>Marka: </strong>{{ car.brandName }}
         </li>
-        <li class="list-group-item">
-          <strong>Model: </strong>{{ car.brandName }}
-        </li>
+      
         <li class="list-group-item">
           <strong>Renk: </strong>{{ car.colorName }}
         </li>
@@ -88,4 +86,52 @@
       <br />
       <button class="col-md-12 btn btn-success">Kirala</button>
     </div>
+  </div> -->
+ <div class="row">
+    <div class="col-md-8">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div 
+      *ngFor="let image of carImages"
+      [class]="getCurrentImageClass(image)"
+      >
+        
+        <img [src]="getPath()+image.imagePath"
+        class="d-block w-100"
+        width="200"
+        height="300"
+        alt="image">
+      </div>
+     
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
+</div>
+<div class="col-md-4">
+    <div *ngFor="let car of cars">
+    <ul class="list-group">
+        <li class="list-group-item
+        bg-primary
+        bg-gradient
+        text-light
+        text-center
+        mb-1
+        rounded
+        "><strong>Araç Özellikleri</strong></li>
+        <li class="list-group-item"><strong>Marka: </strong>{{car.brandName}}</li>
+        <li class="list-group-item"><strong>Renk: </strong>{{car.colorName}}</li>
+        <li class="list-group-item"><strong>Günlük Fiyat: </strong>{{car.dailyPrice}}</li>
+        <li class="list-group-item"><strong>Model: </strong>{{car.modelYear}}</li>
+    </ul>
+    <br>
+    <button class="col-md-12 btn btn-success">Kirala</button>
+</div>
+</div>
+</div> 
