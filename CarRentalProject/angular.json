@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "./node_modules/@angular/cli/lib//schema.json",
   "cli": {
     "analytics": "e29a4d9b-3fe8-43e6-bc30-d1455dfe73c6"
   },
@@ -31,6 +31,7 @@
             ],
             "styles": [
               "src/styles.css",
+              "./node_modules/ngx-toastr/toastr.css",
              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [

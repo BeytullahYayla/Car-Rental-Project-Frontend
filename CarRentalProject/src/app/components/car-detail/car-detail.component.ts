@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Brand } from 'src/app/models/Brand';
 import { Car } from 'src/app/models/Car';
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
+
 
 
 @Component({
@@ -14,6 +16,7 @@ import { CarService } from 'src/app/services/car.service';
 export class CarDetailComponent implements OnInit {
 
   cars:Car[]=[]
+  brands:Brand[]=[]
   carImages:CarImage[]=[]
   currentImage:CarImage
 
@@ -79,4 +82,5 @@ export class CarDetailComponent implements OnInit {
 
 
   }
+  
 }

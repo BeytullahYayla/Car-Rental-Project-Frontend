@@ -39,4 +39,17 @@ getCarImagesByCarId(carID:number):Observable<ListResponseModel<CarImage>>{
   let newPath=this.apiUrl+"CarImages/getimagesbycarid?carId="+carID
   return this.httpClient.get<ListResponseModel<CarImage>>(newPath)
 }
+getCarsByBrandName(brandName:string):Observable<ListResponseModel<Car>>{
+  let newPath=this.apiUrl+"Cars/getcarsbybrandname?brandName="+brandName
+  return this.httpClient.get<ListResponseModel<Car>>(newPath)
+}
+getCarsByColorName(colorName:string):Observable<ListResponseModel<Car>>{
+  let newPath=this.apiUrl+"Cars/getcarsbycolorname?colorName="+colorName
+  return this.httpClient.get<ListResponseModel<Car>>(newPath)
+}
+getCarsByBrandAndColorName(brandName:string,colorName:string):Observable<ListResponseModel<Car>>{
+  let newPath=this.apiUrl+"Cars/getcarsbybrandandcolorname?brandName="+brandName+"&colorName="+colorName
+
+  return this.httpClient.get<ListResponseModel<Car>>(newPath)
+}
 }
