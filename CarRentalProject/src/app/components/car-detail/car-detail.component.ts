@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/Brand';
 import { Car } from 'src/app/models/Car';
 import { CarImage } from 'src/app/models/carImage';
+import { TotalPricePipePipe } from 'src/app/pipes/total-price-pipe.pipe';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
+import { CartService } from 'src/app/services/cart.service';
 
 
 
@@ -19,13 +22,19 @@ export class CarDetailComponent implements OnInit {
   brands:Brand[]=[]
   carImages:CarImage[]=[]
   currentImage:CarImage
+  currentCar:Car
+  totalPrice:number=100
+  totalPricePipe:TotalPricePipePipe
+ 
 
   defaultPath = 'https://localhost:44341';
 
   constructor(private carService:CarService,
     private carImageService:CarImageService,
     private activatedRoute:ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private cartService:CartService,
+    private toastrService:ToastrService
     ) { 
       
     }
@@ -49,6 +58,9 @@ export class CarDetailComponent implements OnInit {
       }
     )
   }
+  getCurrentCar(car:Car){
+    return this.currentCar=car
+  }
   getCarImages(carID:number){
     this.carService.getCarImagesByCarId(carID).subscribe(
       response=>{
@@ -68,6 +80,9 @@ export class CarDetailComponent implements OnInit {
   getPath(){
     return this.defaultPath
   }
+  getImagePath(imagePath:string){
+      return this.defaultPath+"/"+imagePath
+  }
   setCurrentImageClass(image:CarImage){
     this.currentImage=image
 
@@ -82,5 +97,18 @@ export class CarDetailComponent implements OnInit {
 
 
   }
+  addToCart(car:Car){
+    
+    if (this.cartService.checkIfCarExistsInCart(car)) {
+      this.toastrService.error(car.brandName,"Sepete Eklenemedi,Zaten Mevcut")
+    }
+    else{
+      this.cartService.addToCart(car)
+    
+      this.toastrService.success(car.brandName,"Sepete Eklendi")
+    }
+   
+  }
+  
   
 }

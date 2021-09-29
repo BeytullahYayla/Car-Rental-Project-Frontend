@@ -1,53 +1,54 @@
-<!-- <table class="table table-striped">
+
+  <div class="row">
+    <div  *ngFor="let car of cars">
+  <div>
+    <ul class="list-group">
+      <li class="list-group-item
+      bg-primary
+      bg-gradient
+      text-light
+      text-center
+      mb-1
+      rounded
+      "><strong>Araç Bilgileri</strong></li>
+      <li class="list-group-item"><strong>Marka: </strong>{{car.brandName}}</li>
+      <li class="list-group-item"><strong>Renk: </strong>{{car.colorName}}</li>
+      <li class="list-group-item"><strong>Günlük Fiyat: </strong>{{car.dailyPrice}}</li>
+      <li class="list-group-item"><strong>Model: </strong>{{car.modelYear}}</li>
+     
+  </ul>
+</div>
+
+<div>
+  <br>
+  <br>
+  <ul class="list-group">
+    <li class="list-group-item bg-primary bg-gradient text-light text-center mb-1 rounded"><strong>Kiralama Bilgileri</strong></li>
+  </ul>
+  <form>
     
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td *ngFor="let rental of rentals">{{rental.rentalID}}</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td *ngFor="let rental of rentals">{{rental.brandName}}</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td *ngFor="let rental of rentals">{{rental.returnDate}}</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td *ngFor="let rental of rentals">{{rental.rentDate}}</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td *ngFor="let rental of rentals">{{rental.customerFullName}}</td>
-      </tr>
+    <div class="form-group">
+      <label for="exampleInputEmail1"><strong>Kiralama Tarihi</strong></label>
+      <input [(ngModel)]="rentDate" [ngModelOptions]="{standalone: true}"  type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Kiralama Tarihi">
       
-      
-    </tbody>
-  </table> -->
-  <table class="table table-striped">
-    <thead>
-        
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">RentalID</th>
-           <td *ngFor="let rental of rentals">{{rental.rentalID}}</td>
-        </tr>
-        <tr>
-          <th scope="row">BrandName</th>
-          <td *ngFor="let rental of rentals">{{rental.brandName}}</td>
-        </tr>
-        <tr>
-            <th scope="row">CustomerName</th>
-            <td *ngFor="let rental of rentals">{{rental.customerFullName}}</td>
-          </tr>
-          <tr>
-            <th scope="row">RentDate</th>
-            <td *ngFor="let rental of rentals">{{rental.rentDate}}</td>
-          </tr>
-          <tr>
-            <th scope="row">ReturnDate</th>
-            <td *ngFor="let rental of rentals">{{rental.returnDate}}</td>
-          </tr>
-</table>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1"><strong>Dönüş Tarihi</strong></label>
+      <input [(ngModel)]="returnDate" [ngModelOptions]="{standalone: true}"  type="date" class="form-control" id="exampleInputPassword1" placeholder="Donus Tarihi">
+    </div>
+    <br>
+    <br>
+
+    <a type="button"  class="btn btn-primary" (click)="redirectToPayment(car.carID)">Kaydet</a>
+    
+    
+  </form>
+</div>
+
+  
+</div>
+  </div>
+ 
+
+
+

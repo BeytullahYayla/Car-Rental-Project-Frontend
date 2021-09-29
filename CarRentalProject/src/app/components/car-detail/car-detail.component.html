@@ -1,3 +1,45 @@
+<!-- <div class="modal fade" id="araciSepeteEkle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Kiralama Bilgileri</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+  
+       
+        
+        <div class="row">
+      <form action="">
+        <label for="rentDate">Kiralama Tarihi</label>
+        <input type="date" class="form-control" id="rentDate" aria-describedby="rentDate" placeholder="Kiralama Tarihi">
+
+        <label for="returnDate">Geri Dönüş Tarihi</label>
+        <input type="date" class="form-control" id="returnDate" aria-describedby="returnDate" placeholder="Geri Dönüş Tarihi">
+      
+        
+      </form>
+      <div>
+        {{totalPrice|totalPricePipe}}
+      </div>
+    </div>
+    <br>
+     
+      
+    
+
+      </div>
+      
+      </div>
+      <div class="modal-footer">
+        <div *ngFor="let car of cars">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+        <button type="button" class="btn btn-primary">Sepete Ekle</button>
+      </div>
+    </div>
+    </div>
+  </div> -->
 
 
  <div class="row">
@@ -42,9 +84,11 @@
         <li class="list-group-item"><strong>Renk: </strong>{{car.colorName}}</li>
         <li class="list-group-item"><strong>Günlük Fiyat: </strong>{{car.dailyPrice}}</li>
         <li class="list-group-item"><strong>Model: </strong>{{car.modelYear}}</li>
+        <li class="list-group-item text-center"><button class="btn btn-success" role="button" data-bs-toggle="modal"
+          data-bs-target="#araciSepeteEkle" routerLink="/car-detail/rental/{{car.carID}}">Kirala ({{car.dailyPrice}} ₺)</button></li>
     </ul>
     <br>
-    <button class="col-md-12 btn btn-success">Kirala</button>
+    
 </div>
 </div>
 </div> 

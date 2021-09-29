@@ -11,6 +11,7 @@ import { ColorService } from 'src/app/services/color.service';
 import { Brand } from 'src/app/models/Brand';
 import { Color } from 'src/app/models/Color';
 import { ToastrService } from 'ngx-toastr';
+import { CartService } from 'src/app/services/cart.service';
 
 
 
@@ -36,6 +37,7 @@ export class CarComponent implements OnInit {
     private colorService:ColorService,
     private router:Router,
     private toasterService:ToastrService,
+    private cartService:CartService
     
     
     ) { }
@@ -54,6 +56,7 @@ export class CarComponent implements OnInit {
   ngOnInit(): void {
     this.getColors();
     this.getBrands();
+    
     this.activatedRoute.params.subscribe(
       params=>{
         
@@ -158,7 +161,17 @@ export class CarComponent implements OnInit {
 
   
   addToCart(car:Car){
-    this.toasterService.success(car.brandName,"Sepete Eklendi")
+    
+    if (this.cartService.checkIfCarExistsInCart(car)) {
+      this.toasterService.error(car.brandName,"Sepete Eklenemedi,Zaten Mevcut")
+    }
+    else{
+      this.cartService.addToCart(car)
+    
+      this.toasterService.success(car.brandName,"Sepete Eklendi")
+    }
+   
   }
+  
  
 }
