@@ -18,11 +18,14 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
 
 import { FilterColorPipePipe } from './pipes/filter-color-pipe.pipe';
 import { FilterCarmodelPipePipe } from './pipes/filter-carmodel-pipe.pipe';
-import { RentalAddComponent } from './components/rental-add/rental-add.component';
+
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CartAddComponent } from './components/cart-add/cart-add.component';
 import { TotalPricePipePipe } from './pipes/total-price-pipe.pipe';
+import { RentComponent } from './components/rent/rent.component';
+import { PaymentComponent } from './components/payment/payment.component';
+
 
 
 
@@ -43,11 +46,14 @@ import { TotalPricePipePipe } from './pipes/total-price-pipe.pipe';
     FilterColorPipePipe,
     FilterCarmodelPipePipe,
     CarDetailComponent,
-    RentalAddComponent,
+   
     CartSummaryComponent,
     CartComponent,
     CartAddComponent,
     TotalPricePipePipe,
+    RentComponent,
+    PaymentComponent,
+  
      
   
     

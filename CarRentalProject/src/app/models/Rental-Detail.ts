@@ -1,5 +1,5 @@
 export interface RentalDetail{
-    rentalID:number;
+    rentalID?:number;
     brandName:string;
     customerFullName:string;
     rentDate:Date;

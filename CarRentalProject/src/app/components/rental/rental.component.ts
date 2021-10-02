@@ -27,6 +27,7 @@ export class RentalComponent implements OnInit {
   @Output() parentFunction:EventEmitter<any>=new EventEmitter()
   cars:Car[]
   dateStatus:boolean=false
+
   
   
 
@@ -37,7 +38,8 @@ export class RentalComponent implements OnInit {
     private rentalService:RentalService,
     private carService:CarService,
     private activatedRoute:ActivatedRoute,
-    private toastrService:ToastrService
+    private toastrService:ToastrService,
+    private router:Router
     ) { 
       
     }
@@ -82,7 +84,7 @@ export class RentalComponent implements OnInit {
         }
         else{
           this.toastrService.info("Araç müsait.")
-          //this.router.navigate(["/payment"]);
+          this.router.navigate(["/payment/"+carID]);
           this.parentFunction.emit(this.dateStatus = true)
         }
       }
@@ -97,8 +99,11 @@ export class RentalComponent implements OnInit {
         }
        
         else{
-          this.toastrService.info("Araç müsait.")
-          //this.router.navigate(["/payment"]);
+          
+          this.toastrService.success("Araç müsait.")
+          this.router.navigate(["/payment/"+carID])
+
+          
           this.parentFunction.emit(this.dateStatus = true)
         }      
       }

@@ -1,0 +1,61 @@
+
+<div class="row">
+    <div *ngFor="let car of cars">
+        <ul class="list-group">
+                <li class="list-group-item bg-primary text-light text-center">
+                <strong>Araç Bilgileri</strong> 
+                </li>
+                <li class="list-group-item"><strong>Marka Adı:</strong>    {{car.brandName}}</li>
+                <li class="list-group-item"><strong>Model Yılı:</strong>    {{car.modelYear}}</li>
+                <li class="list-group-item"><strong>Günlük Ücret:</strong>    {{car.dailyPrice}}</li>
+            </ul>
+    </div>
+    
+</div>
+<br>
+<br>
+<br>
+<div class="row">
+    <div class="md-6">
+        <p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Kiralama Tarihi
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <div class="container">
+                    <form class="form-horizontal" role="form">
+                        <br /><input type="date" [(ngModel)] = "rentDate" [ngModelOptions]="{standalone:true}" class="form-control" placeholder="Date-time Kodu">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-6">
+        <p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+              Teslim Tarihi
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample2">
+            <div class="card card-body">
+                <div class="container">
+                    <form class="form-horizontal" role="form">
+                        <br /><input type="date" [(ngModel)] = "returnDate" [ngModelOptions]="{standalone:true}" class="form-control" placeholder="Date-time Kodu">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<button class = " btn btn-success" (click)="setDates(rentDate, returnDate)">Kirala</button>
+<div *ngIf="checkSuccess; else failed">
+    <app-payment></app-payment>
+</div>
+
+<ng-template #failed>
+    <h5>{{checkMessage}}</h5>
+</ng-template>

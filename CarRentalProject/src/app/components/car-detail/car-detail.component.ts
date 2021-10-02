@@ -86,6 +86,7 @@ export class CarDetailComponent implements OnInit {
   setCurrentImageClass(image:CarImage){
     this.currentImage=image
 
+
   }
   getCurrentImageClass(image:CarImage){
     if (this.carImages[0]==image) {
