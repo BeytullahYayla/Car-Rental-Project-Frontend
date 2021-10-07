@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule,FormBuilder,FormControl,Validators } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarComponent } from './components/car/car.component';
@@ -25,6 +25,7 @@ import { CartAddComponent } from './components/cart-add/cart-add.component';
 import { TotalPricePipePipe } from './pipes/total-price-pipe.pipe';
 import { RentComponent } from './components/rent/rent.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
 
 
 
@@ -53,6 +54,7 @@ import { PaymentComponent } from './components/payment/payment.component';
     TotalPricePipePipe,
     RentComponent,
     PaymentComponent,
+    CarAddComponent,
   
      
   
@@ -68,6 +70,7 @@ import { PaymentComponent } from './components/payment/payment.component';
       positionClass:"toast-bottom-right"
     }),
     BrowserAnimationsModule,
+    ReactiveFormsModule
    
    
   ],

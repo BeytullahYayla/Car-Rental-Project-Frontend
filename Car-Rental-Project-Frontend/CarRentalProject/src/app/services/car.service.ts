@@ -5,6 +5,7 @@ import { Car } from '../models/Car';
 import { CarImage } from '../models/carImage';
 import { CarResponseModel } from '../models/carResponseModel';
 import { ListResponseModel } from '../models/listResponseModel';
+import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +52,10 @@ getCarsByBrandAndColorName(brandName:string,colorName:string):Observable<ListRes
   let newPath=this.apiUrl+"Cars/getcarsbybrandandcolorname?brandName="+brandName+"&colorName="+colorName
 
   return this.httpClient.get<ListResponseModel<Car>>(newPath)
+}
+add(car:Car){
+  let newPath=this.apiUrl+"Cars/add"
+  return this.httpClient.post<ResponseModel>(newPath,car)
+
 }
 }

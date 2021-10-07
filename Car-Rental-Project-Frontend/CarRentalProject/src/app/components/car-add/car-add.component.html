@@ -1,0 +1,80 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h5 class="title">Araç Ekle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carAddForm">
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="brandID">Marka Adı</label>
+                            <input  type="text" id="brandName" formControlName="brandName" class="form-control" placeholder="Marka Adı">
+    
+                        </div>
+                    </div>
+                    
+                   <div class="mb-3">
+                    <div class="form-group">
+                        <label for="colorName">Renk Adı</label>
+                        <input  type="text" id="colorName" formControlName="colorName" class="form-control" placeholder="Renk Adı">
+                        
+                    </div>
+                   </div>
+                   
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="brandID">Marka ID</label>
+                            <input  type="number" id="brandID" formControlName="brandID" class="form-control" placeholder="Marka ID">
+                            
+                        </div>
+
+                    </div>
+                   
+                    
+                    <div class="mb-3">
+                        <div class="form-group">
+                        <label for="colorID">Renk ID</label>
+                        <input  type="number" id="colorID" formControlName="colorID" class="form-control" placeholder="Renk ID">
+                        
+                    </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="modelYear">Model Yılı</label>
+                            <input  type="text" id="modelYear" formControlName="modelYear" class="form-control" placeholder="Model Yılı">
+                            
+                        </div>
+
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="description">Açıklama</label>
+                            <input  type="text" id="description" formControlName="description" class="form-control" placeholder="Açıklama">
+                            
+                        </div>
+
+                    </div>
+                    
+                  
+                  
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="dailyPrice">Günlük Fiyat</label>
+                            <input  type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" placeholder="Günlük Fiyat">
+                            
+                        </div>
+
+                    </div>
+         
+                </form>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-success btn-fill" (click)="add()">Ekle</button>
+            </div>
+        </div>
+       
+    </div>
+</div>
