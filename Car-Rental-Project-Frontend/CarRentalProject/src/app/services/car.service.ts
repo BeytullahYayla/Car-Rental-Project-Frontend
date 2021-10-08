@@ -53,7 +53,7 @@ getCarsByBrandAndColorName(brandName:string,colorName:string):Observable<ListRes
 
   return this.httpClient.get<ListResponseModel<Car>>(newPath)
 }
-add(car:Car){
+add(car:Car):Observable<ResponseModel>{
   let newPath=this.apiUrl+"Cars/add"
   return this.httpClient.post<ResponseModel>(newPath,car)
 
