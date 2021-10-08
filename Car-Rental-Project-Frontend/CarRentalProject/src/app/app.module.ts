@@ -26,6 +26,9 @@ import { TotalPricePipePipe } from './pipes/total-price-pipe.pipe';
 import { RentComponent } from './components/rent/rent.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
+import { ManangementComponent } from './components/manangement/manangement.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
 
 
 
@@ -55,6 +58,9 @@ import { CarAddComponent } from './components/car-add/car-add.component';
     RentComponent,
     PaymentComponent,
     CarAddComponent,
+    ManangementComponent,
+    BrandAddComponent,
+    ColorAddComponent,
   
      
   

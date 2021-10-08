@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Car } from '../models/Car';
@@ -57,5 +58,9 @@ add(car:Car):Observable<ResponseModel>{
   let newPath=this.apiUrl+"Cars/add"
   return this.httpClient.post<ResponseModel>(newPath,car)
 
+}
+delete(car:Car):Observable<ResponseModel>{
+  let newPath=this.apiUrl+"Cars/delete"
+  return this.httpClient.post<ResponseModel>(newPath,car)
 }
 }
