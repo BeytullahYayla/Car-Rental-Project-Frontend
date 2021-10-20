@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Car } from 'src/app/models/Car';
+import { CarDetail } from 'src/app/models/car-detail';
 import { HttpClient } from  '@angular/common/http';
 import { CarResponseModel } from 'src/app/models/carResponseModel';
 import { CarService } from 'src/app/services/car.service';
@@ -41,7 +41,7 @@ export class CarComponent implements OnInit {
     
     
     ) { }
-  cars:Car[]=[]
+  cars:CarDetail[]=[]
   brands:Brand[]=[]
   colors:Color[]=[]
 
@@ -160,7 +160,7 @@ export class CarComponent implements OnInit {
   }
 
   
-  addToCart(car:Car){
+  addToCart(car:CarDetail){
     
     if (this.cartService.checkIfCarExistsInCart(car)) {
       this.toasterService.error(car.brandName,"Sepete Eklenemedi,Zaten Mevcut")

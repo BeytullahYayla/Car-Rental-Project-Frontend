@@ -1,0 +1,80 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h5 class="title">Araç Güncelle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carUpdateForm">
+                    <div *ngFor="let c of car">
+                    
+                    
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="carID">Araba ID</label>
+                            <input  type="text"  id="carID" formControlName="carID" class="form-control" placeholder="{{c.carID}}">
+                            
+                        </div>
+
+                    </div>
+                  
+                   
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="brandID">Marka ID</label>
+                            <input  type="number"  id="brandID" formControlName="brandID" class="form-control" placeholder="{{c.brandID}}">
+                            
+                        </div>
+
+                    </div>
+                   
+                    
+                    <div class="mb-3">
+                        <div class="form-group">
+                        <label for="colorID">Renk ID</label>
+                        <input  type="number" id="colorID" formControlName="colorID" class="form-control" placeholder="{{c.colorID}}">
+                        
+                    </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="modelYear">Model Yılı</label>
+                            <input  type="text" id="modelYear" formControlName="modelYear" class="form-control" placeholder={{c.modelYear}}>
+                            
+                        </div>
+
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="description">Açıklama</label>
+                            <input  type="text" id="description" formControlName="description" class="form-control" placeholder="{{c.description}}">
+                            
+                        </div>
+
+                    </div>
+                    
+                  
+                  
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="dailyPrice">Günlük Fiyat</label>
+                            <input  type="text" id="dailyPrice" name="dailyPrice"  formControlName="dailyPrice" class="form-control" placeholder="{{c.dailyPrice}}">
+                            
+                        </div>
+
+                    </div>
+                </div>
+         
+                </form>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-success btn-fill" (click)="update()">Guncelle</button>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+

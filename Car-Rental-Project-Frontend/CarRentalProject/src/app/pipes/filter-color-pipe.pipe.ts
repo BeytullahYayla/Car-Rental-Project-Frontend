@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Car } from '../models/Car';
+import { CarDetail } from '../models/car-detail';
 
 
 @Pipe({
@@ -8,9 +8,9 @@ import { Car } from '../models/Car';
 })
 export class FilterColorPipePipe implements PipeTransform {
 
-  transform(value: Car[], colorID:number): Car[] {
+  transform(value: CarDetail[], colorID:number): CarDetail[] {
     
-    return colorID?value.filter((c:Car)=>c.colorID==colorID):value;
+    return colorID?value.filter((c:CarDetail)=>c.colorID==colorID):value;
   }
 
 }

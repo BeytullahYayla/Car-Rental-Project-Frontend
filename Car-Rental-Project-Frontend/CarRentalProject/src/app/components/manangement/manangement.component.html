@@ -16,7 +16,7 @@
                     <td>{{car.brandName}}</td>
                     <td>{{car.colorName}}</td>
                     <td>{{car.dailyPrice}}</td>
-                    <td><button class="btn btn-warning">Güncelle</button></td>
+                    <td><button class="btn btn-warning" routerLink="/cars/update/{{car.carID}}">Güncelle</button></td>
                     <td><button class="btn btn-danger" (click)="deleteCar(car)">Sil</button></td>
                 </tr>
     
@@ -43,7 +43,7 @@
                     <td>{{brand.brandID}}</td>
                     <td>{{brand.brandName}}</td>
                    
-                    <td><button class="btn btn-warning">Güncelle</button></td>
+                    <td><button class="btn btn-warning" routerLink="/brands/update/{{brand.brandID}}">Güncelle</button></td>
                     <td><button class="btn btn-danger" (click)="deleteBrand(brand)">Sil</button></td>
                 </tr>
     

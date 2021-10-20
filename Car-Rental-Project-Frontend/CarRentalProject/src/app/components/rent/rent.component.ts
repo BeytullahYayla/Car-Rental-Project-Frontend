@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Car } from 'src/app/models/Car';
+import { CarDetail } from 'src/app/models/car-detail';
 import { Rental } from 'src/app/models/Rental';
 import { CarService } from 'src/app/services/car.service';
 import { RentalService } from 'src/app/services/rental.service';
@@ -18,7 +18,7 @@ export class RentComponent implements OnInit {
   returnDate:Date;
   checkSuccess:Boolean = false;
   checkMessage:string = "Lütfen Tarih Seçiniz!";
-  cars:Car[]=[]
+  cars:CarDetail[]=[]
 
   constructor(private rentalService:RentalService, 
     

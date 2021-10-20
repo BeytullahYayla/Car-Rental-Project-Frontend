@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/Brand';
-import { Car } from 'src/app/models/Car';
+import { CarDetail } from 'src/app/models/car-detail';
 import { CarImage } from 'src/app/models/carImage';
 import { TotalPricePipePipe } from 'src/app/pipes/total-price-pipe.pipe';
 import { CarImageService } from 'src/app/services/car-image.service';
@@ -18,11 +18,11 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CarDetailComponent implements OnInit {
 
-  cars:Car[]=[]
+  cars:CarDetail[]=[]
   brands:Brand[]=[]
   carImages:CarImage[]=[]
   currentImage:CarImage
-  currentCar:Car
+  currentCar:CarDetail
   totalPrice:number=100
   totalPricePipe:TotalPricePipePipe
  
@@ -58,7 +58,7 @@ export class CarDetailComponent implements OnInit {
       }
     )
   }
-  getCurrentCar(car:Car){
+  getCurrentCar(car:CarDetail){
     return this.currentCar=car
   }
   getCarImages(carID:number){
@@ -98,7 +98,7 @@ export class CarDetailComponent implements OnInit {
 
 
   }
-  addToCart(car:Car){
+  addToCart(car:CarDetail){
     
     if (this.cartService.checkIfCarExistsInCart(car)) {
       this.toastrService.error(car.brandName,"Sepete Eklenemedi,Zaten Mevcut")

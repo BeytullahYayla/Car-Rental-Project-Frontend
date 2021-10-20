@@ -1,0 +1,53 @@
+<div class="content">
+  <div class="col-md-12">
+      <div class="card">
+          <div class="header">
+              <h5 class="title">Marka Güncelle</h5>
+          </div>
+          <div class="card-body">
+              <form [formGroup]="brandUpdateForm">
+                <div *ngFor="let b of brand">
+                 
+                  
+                  <div class="mb-3">
+                    <div class="form-group">
+                        <label for="brandID">Marka ID</label>
+                        <input  type="text"  id="brandID" formControlName="brandID" class="form-control" placeholder="{{b.brandID}}">
+                        
+                    </div>
+
+                </div>
+                  <div class="mb-3">
+                      <div class="form-group">
+                          <label for="brandName">Marka Adı</label>
+                          <input  type="text"  id="brandName" formControlName="brandName" class="form-control" placeholder="{{b.brandName}}">
+                          
+                      </div>
+
+                  </div>
+                </div>
+                
+                 
+                
+                 
+                  
+                 
+                  
+                  
+                
+                  
+                
+                
+                  
+      
+              </form>
+          </div>
+          <div class="card-footer">
+              <button type="button" class="btn btn-success btn-fill" (click)="update()">Guncelle</button>
+          </div>
+      </div>
+     
+  </div>
+</div>
+
+

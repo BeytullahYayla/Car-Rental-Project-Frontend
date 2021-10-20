@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Car } from 'src/app/models/Car';
+import { CarDetail } from 'src/app/models/car-detail';
 import { CarImage } from 'src/app/models/carImage';
 import { CartItem } from 'src/app/models/cartItem';
 import { CarImageService } from 'src/app/services/car-image.service';
@@ -28,7 +28,7 @@ export class CartSummaryComponent implements OnInit {
   getCartItems(){
     this.cartItems=this.cartService.list()
   }
-  removeFromCart(car:Car){
+  removeFromCart(car:CarDetail){
     this.toastrService.error(car.brandName,"Sepetten Silindi")
     this.cartService.removeFromCart(car)
   }

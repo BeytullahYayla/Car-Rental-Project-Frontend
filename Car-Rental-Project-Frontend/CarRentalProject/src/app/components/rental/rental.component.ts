@@ -2,7 +2,7 @@ import { Component,EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Event, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/Brand';
-import { Car } from 'src/app/models/Car';
+import { CarDetail } from 'src/app/models/car-detail';
 import { CarImage } from 'src/app/models/carImage';
 import { Rental } from 'src/app/models/Rental';
 import { RentalDetail } from 'src/app/models/Rental-Detail';
@@ -21,11 +21,11 @@ import { RentalService } from 'src/app/services/rental.service';
 export class RentalComponent implements OnInit {
   rentalDetails:RentalDetail[]
   rentals:Rental[]=[]
-  @Input() carDetails:Car[]=[]
+  @Input() carDetails:CarDetail[]=[]
   rentDate:Date
   returnDate:Date
   @Output() parentFunction:EventEmitter<any>=new EventEmitter()
-  cars:Car[]
+  cars:CarDetail[]
   dateStatus:boolean=false
 
   
