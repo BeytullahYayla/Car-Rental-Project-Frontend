@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/Brand';
+import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/car-detail';
+import { CarImage } from 'src/app/models/carImage';
 import { Color } from 'src/app/models/Color';
 import { BrandService } from 'src/app/services/brand.service';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
 
@@ -23,7 +26,8 @@ export class ManangementComponent implements OnInit {
     private colorService:ColorService,
     private brandService:BrandService,
     private toastrService:ToastrService,
-    private activatedRoute:ActivatedRoute
+    private activatedRoute:ActivatedRoute,
+    private carImageService:CarImageService
     
     ) { }
 
@@ -60,10 +64,11 @@ export class ManangementComponent implements OnInit {
       }
     )
   }
-  deleteCar(car:CarDetail){
+  deleteCar(car:Car){
+  
     this.carService.delete(car).subscribe(
       response=>{
-        this.toastrService.success(car.brandName,"Başarıyla Silindi")
+        this.toastrService.success("Başarıyla Silindi")
         window.location.reload()
       },
       responseError=>{

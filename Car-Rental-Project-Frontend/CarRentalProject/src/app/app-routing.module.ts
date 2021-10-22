@@ -10,6 +10,7 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
 import { CarComponent } from './components/car/car.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
+import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { ManangementComponent } from './components/manangement/manangement.component';
 import { RentComponent } from './components/rent/rent.component';
 
@@ -32,7 +33,8 @@ const routes: Routes = [
   {path:"brands/add",component:BrandAddComponent},
   {path:"colors/add",component:ColorAddComponent},
   {path:"cars/update/:carID",component:CarUpdateComponent},
-  {path:"brands/update/:brandID",component:BrandUpdateComponent}
+  {path:"brands/update/:brandID",component:BrandUpdateComponent},
+  {path:"colors/update/:colorID",component:ColorUpdateComponent}
  
 ];
 

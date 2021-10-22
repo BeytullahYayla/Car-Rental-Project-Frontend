@@ -1,0 +1,54 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h5 class="title">Renk Güncelle</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="colorUpdateForm">
+                  <div *ngFor="let co of color">
+                   
+                    
+                    <div class="mb-3">
+                      <div class="form-group">
+                          <label for="colorID">Renk ID</label>
+                          <input  type="text"  id="colorID" formControlName="colorID" class="form-control" placeholder="{{co.colorID}}">
+                          
+                      </div>
+  
+                  </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="colorName">Marka Adı</label>
+                            <input  type="text"  id="colorName" formControlName="colorName" class="form-control">
+                            
+                        </div>
+  
+                    </div>
+                  </div>
+                  
+                   
+                  
+                   
+                    
+                   
+                    
+                    
+                  
+                    
+                  
+                  
+                    
+        
+                </form>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-success btn-fill" (click)="update()">Guncelle</button>
+            </div>
+        </div>
+       
+    </div>
+  </div>
+  
+  
+  

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Car } from '../models/car';
 import { CarDetail } from '../models/car-detail';
 import { CarImage } from '../models/carImage';
 import { CarResponseModel } from '../models/carResponseModel';
@@ -59,11 +60,11 @@ add(car:CarDetail):Observable<ResponseModel>{
   return this.httpClient.post<ResponseModel>(newPath,car)
 
 }
-delete(car:CarDetail):Observable<ResponseModel>{
+delete(car:Car):Observable<ResponseModel>{
   let newPath=this.apiUrl+"Cars/delete"
   return this.httpClient.post<ResponseModel>(newPath,car)
 }
-update(car:CarDetail):Observable<ResponseModel>{
+update(car:Car):Observable<ResponseModel>{
   let newPath=this.apiUrl+"Cars/update"
   return this.httpClient.post<ResponseModel>(newPath,car)
 }
