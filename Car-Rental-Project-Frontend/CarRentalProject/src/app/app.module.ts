@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { FormsModule,ReactiveFormsModule,FormBuilder,FormControl,Validators } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +32,8 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
 import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 
@@ -68,6 +70,7 @@ import { ColorUpdateComponent } from './components/color-update/color-update.com
     CarUpdateComponent,
     BrandUpdateComponent,
     ColorUpdateComponent,
+    LoginComponent,
    
   
      
@@ -88,7 +91,10 @@ import { ColorUpdateComponent } from './components/color-update/color-update.com
    
    
   ],
-  providers: [],
+  providers: [
+    
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

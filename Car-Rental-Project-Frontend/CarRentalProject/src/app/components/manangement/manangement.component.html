@@ -6,6 +6,7 @@
                 <th>Araba ID</th>
                 <th>Marka Adı</th>
                 <th>Renk Adı</th>
+                <th>Açıklama</th>
                 <th>Günlük Fiyat</th>
                 <th>Güncelle</th>
        
@@ -13,6 +14,8 @@
             <tbody>
                 <tr *ngFor="let car of cars">
                     <td>{{car.carID}}</td>
+                    <td>{{car.brandName}}</td>
+                    <td>{{car.colorName}}</td>
                     
                     <td>{{car.description}}</td>
                     <td>{{car.dailyPrice}}</td>
