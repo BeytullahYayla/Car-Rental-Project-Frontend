@@ -22,7 +22,7 @@ import { LoginGuard } from './guards/login.guard';
 const routes: Routes = [
   {path:"",pathMatch:"full",component:CarComponent},
   {path:"cars",pathMatch:"full",component:CarComponent},
-  {path:"cars/brand/:brandID",component:CarComponent},
+  {path:"cars/brand/:id",component:CarComponent},
   {path:"cars/color/:colorID",component:CarComponent},
   {path:"car-detail",pathMatch:"full",component:CarDetailComponent},
   {path:"cars/car-detail/:carID",pathMatch:"full",component:CarDetailComponent},
@@ -35,7 +35,7 @@ const routes: Routes = [
   {path:"brands/add",component:BrandAddComponent},
   {path:"colors/add",component:ColorAddComponent},
   {path:"cars/update/:carID",component:CarUpdateComponent},
-  {path:"brands/update/:brandID",component:BrandUpdateComponent},
+  {path:"brands/update/:id",component:BrandUpdateComponent},
   {path:"colors/update/:colorID",component:ColorUpdateComponent},
   {path:"login",component:LoginComponent}
  

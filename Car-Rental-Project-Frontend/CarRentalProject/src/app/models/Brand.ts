@@ -1,4 +1,4 @@
 export interface Brand{
-    brandID:number;
+    id:number;
     brandName:string
 }

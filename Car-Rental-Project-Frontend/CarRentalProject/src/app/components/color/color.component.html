@@ -2,7 +2,7 @@
   <li class="list-group-item bg-primary bg-gradient text-light text-center mb-1 rounded"><strong>Renkler</strong></li>
   <li class="list-group-item"
   (click)="setCurrentColor(color)"
-  routerLink="cars/color/{{color.colorID}}"
+  routerLink="cars/color/{{color.id}}"
   *ngFor="let color of colors"
   [class]="getCurrentColor(color)"
 
