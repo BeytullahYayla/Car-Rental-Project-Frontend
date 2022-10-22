@@ -30,8 +30,8 @@ export class ColorUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
       params=>{
-        if (params["id"]) {
-          this.colorService.getColorByColorId(params["id"])
+        if (params["colorID"]) {
+          this.colorService.getColorByColorId(params["colorID"])
           
         }
       }
@@ -50,7 +50,7 @@ export class ColorUpdateComponent implements OnInit {
   }
   createColorUpdateForm(){
     this.colorUpdateForm=this.formBuilder.group({
-      id:["",Validators.required],
+      colorID:["",Validators.required],
       colorName:["",Validators.required]
 
     })
