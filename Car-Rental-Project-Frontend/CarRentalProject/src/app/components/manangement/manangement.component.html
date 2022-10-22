@@ -43,10 +43,10 @@
             </thead>
             <tbody>
                 <tr *ngFor="let brand of brands">
-                    <td>{{brand.id}}</td>
+                    <td>{{brand.brandID}}</td>
                     <td>{{brand.brandName}}</td>
                    
-                    <td><button class="btn btn-warning" routerLink="/brands/update/{{brand.id}}">Güncelle</button></td>
+                    <td><button class="btn btn-warning" routerLink="/brands/update/{{brand.brandID}}">Güncelle</button></td>
                
                 </tr>
     
@@ -69,10 +69,10 @@
             </thead>
             <tbody>
                 <tr *ngFor="let color of colors">
-                    <td>{{color.id}}</td>
+                    <td>{{color.colorID}}</td>
                     <td>{{color.colorName}}</td>
                    
-                    <td><button class="btn btn-warning" routerLink="/colors/update/{{color.id}}">Güncelle</button></td>
+                    <td><button class="btn btn-warning" routerLink="/colors/update/:{{color.colorID}}">Güncelle</button></td>
                     
                 </tr>
     
